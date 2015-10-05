@@ -159,18 +159,21 @@ var washington = {
 	coordinates: [38.54, -77.01]
 }
 
-var teams = [washington, tennesee, tampa, seattle, sanFrancisco, sanDiego, saintLouis, pittsburgh, philadelphia, oakland, newYorkJets, newYorkGiants, newOrleans, newEngland, minnesota, miami, kansasCity, jacksonville, indianapolis, houston, detroit, denver, dallas, cleveland, cincinnati, carolina, buffalo, baltimore, Atlanta, arizona, greenBay, chicago];
+var teams = [washington, tennessee, tampa, seattle, sanFrancisco, sanDiego, saintLouis, pittsburgh, philadelphia, oakland, newYorkJets, newYorkGiants, newOrleans, newEngland, minnesota, miami, kansasCity, jacksonville, indianapolis, houston, detroit, denver, dallas, cleveland, cincinnati, carolina, buffalo, baltimore, Atlanta, arizona, greenBay, chicago];
 
 
 var map = L.map('map').setView([37.8, -96], 4);
 
 	  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
+    maxZoom: 17,
     id: 'mobot11.njlgjgi6',
     accessToken: 'pk.eyJ1IjoibW9ib3QxMSIsImEiOiI4N2FjYWZhNWQ4YmU5Yjk2MzFlZjkxMjMzNzNmMGQzNiJ9.kkMw6O4lV-74eEs-MgHvkQ'
 }).addTo(map);
 
+teams.map(function(team) {
+	L.marker(team.coordinates).bindPopup(team.name).addTo(map);
+});
 
 
 
